@@ -8,14 +8,16 @@ publish = false
 # Embassy for RP2350 - using git versions since RP2350 support is very new
 embassy-executor = { git = "https://github.com/embassy-rs/embassy.git", features = ["arch-cortex-m", "executor-thread"] }
 embassy-time = { git = "https://github.com/embassy-rs/embassy.git" }
-embassy-rp = { git = "https://github.com/embassy-rs/embassy.git", features = ["time-driver", "rp235xa", "critical-section-impl"] }
+embassy-rp = { git = "https://github.com/embassy-rs/embassy.git", features = ["time-driver", "rp235xa", "critical-section-impl", "imagedef-secure-exe", "binary-info"] }
 
 # Cortex-M runtime
 cortex-m = { version = "0.7.7" }
 cortex-m-rt = "0.7.3"
 
-# Panic handler
-panic-halt = "0.2"
+# Panic and logging
+panic-probe = { version = "0.3", features = ["print-defmt"] }
+defmt = "0.3"
+defmt-rtt = "0.4"
 
 [profile.release]
 codegen-units = 1
