@@ -1,0 +1,24 @@
+[package]
+name = "robot-embassy"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+# Embassy for RP2350 - using git versions since RP2350 support is very new
+embassy-executor = { git = "https://github.com/embassy-rs/embassy.git", features = ["arch-cortex-m", "executor-thread"] }
+embassy-time = { git = "https://github.com/embassy-rs/embassy.git" }
+embassy-rp = { git = "https://github.com/embassy-rs/embassy.git", features = ["time-driver", "rp235xa", "critical-section-impl"] }
+
+# Cortex-M runtime
+cortex-m = { version = "0.7.7" }
+cortex-m-rt = "0.7.3"
+
+# Panic handler
+panic-halt = "0.2"
+
+[profile.release]
+codegen-units = 1
+debug = 2
+lto = "fat"
+opt-level = "z"
