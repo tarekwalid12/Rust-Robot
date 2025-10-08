@@ -63,7 +63,7 @@ Use the included flash script for devices in BOOTSEL mode:
 ```bash
 # 1. Hold BOOTSEL button on RP2350 and plug in USB
 # 2. Run the flash script
-./flash.sh
+./quick-flash.sh
 ```
 
 The script will:
