@@ -34,7 +34,6 @@ That's it! The script will build and flash automatically.
 
 ## Hardware Pin Mapping
 
-Same as the original C code:
 - **PWMA**: GPIO 16
 - **AIN2**: GPIO 17  
 - **AIN1**: GPIO 18
