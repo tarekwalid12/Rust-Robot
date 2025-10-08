@@ -21,8 +21,8 @@
 //! ## IR Remote Commands
 //! - `0x18`: Move forward at current speed
 //! - `0x52`: Move backward at current speed
-//! - `0x08`: Turn left (33% speed for precision)
-//! - `0x5A`: Turn right (33% speed for precision)
+//! - `0x08`: Turn left (50% speed for precision)
+//! - `0x5A`: Turn right (50% speed for precision)
 //! - `0x1C`: Stop all motors
 //! - `0x09`: Reset speed to 50%
 //! - `0x15`: Increase speed by ~10%
@@ -289,8 +289,8 @@ async fn main(_spawner: Spawner) {
                     info!("Forward");
                 }
                 0x08 => {
-                    // Left (slower for better control)
-                    motors.left(speed / 3);  // ~33% of current speed
+                    // Left
+                    motors.left(speed / 2);
                     info!("Left");
                 }
                 0x1C => {
@@ -299,8 +299,8 @@ async fn main(_spawner: Spawner) {
                     info!("Stop");
                 }
                 0x5A => {
-                    // Right (slower for better control)
-                    motors.right(speed / 3);  // ~33% of current speed
+                    // Right
+                    motors.right(speed / 2);
                     info!("Right");
                 }
                 0x52 => {
