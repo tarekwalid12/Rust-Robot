@@ -2,7 +2,7 @@
 
 # Rust Robot
 
-Professional async robot firmware for the Waveshare Pico2Go (RP2350-Plus), written in Rust using the Embassy async embedded framework. This project utilizes the RP2350 platform, featuring robust motor control and IR remote support.
+Async professional robot firmware for Waveshare Pico2Go (RP2350-Plus) in Rust with Embassy; leverages RP2350 for reliable motor control plus integrated IR remote support and robust capabilities.
 
 ## Required Hardware
 
